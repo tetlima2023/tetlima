@@ -8,6 +8,15 @@ export async function createLinks(nome: string, url: string) {
     }
   })
 }
+
+export async function removeLinks(id: string) {
+  return await prisma.redirect.delete({
+    where: {
+      id,
+    }
+  })
+}
+
 export async function getLink(id: string) {
   const data = await prisma.redirect.findUnique({
     where: {
