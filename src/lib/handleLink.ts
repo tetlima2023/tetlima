@@ -19,7 +19,9 @@ export async function getLink(id: string) {
 }
 
 export async function getAllLink() {
-  const data = await prisma.redirect.findMany()
-
-  return data
+  return await prisma.redirect.findMany({
+    orderBy: {
+      createdAt: 'desc'
+    }
+  })
 }

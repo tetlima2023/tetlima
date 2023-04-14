@@ -11,7 +11,8 @@ datasource db {
 }
 
 model redirect {
-  id   String @id @unique @default(uuid())
-  nome String
-  url  String
+  id        String @id @unique @default(uuid())
+  nome      String
+  url       String
+  createdAt DateTime @default(now())
 }
