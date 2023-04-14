@@ -42,7 +42,7 @@ export default function Home() {
             <div>
               <p>nome: {dat.nome}</p>
               <p>link: {dat.url}</p>
-              <p>url: {`http://localhost:3000/redirect/${dat.nome}/${dat.id}`}</p>
+              <p>url: {`https://redirect-hxsggsz.vercel.app/redirect/${dat.nome}/${dat.id}`}</p>
             </div>
           </li>
         ))}
