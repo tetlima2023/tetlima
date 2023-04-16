@@ -1,8 +1,9 @@
 import useSWR from "swr"
 import axios from "axios"
-import useSWRMutation from 'swr/mutation'
 import { fetcher } from "@/pages/api/fetcher"
 import { LinkSimple, Trash } from "@phosphor-icons/react"
+import { Notification } from "./notification"
+import { useState } from "react"
 
 type CartType = {
   id: string
@@ -10,20 +11,21 @@ type CartType = {
   url: string
 }
 
-async function RemoveLink(url: string) {
-  return await axios.delete(url)
-}
-
 export const Card = () => {
-  const { data: link } = useSWR<CartType[]>(`/api/links`, fetcher)
-  const { trigger } = useSWRMutation(`/api/link/`, RemoveLink)
+  const { data: link, mutate } = useSWR<CartType[]>(`/api/links`, fetcher)
+  const [IsShow, setIsShow] = useState(false)
 
   function handleCopy(copy: string) {
     navigator.clipboard.writeText(`https://redirect-hxsggsz.vercel.app/tetlima/${copy}`)
+    setIsShow(true)
+    setTimeout(() => {
+      setIsShow(false)
+    }, 2500)
   }
 
   async function handleDelete(id: string) {
-    await trigger()
+    await axios.delete(`/api/link/${id}`)
+    await mutate()
   }
 
   return (
@@ -45,6 +47,7 @@ export const Card = () => {
 
         </div>
       ))}
+      <Notification IsShow={IsShow} />
     </>
   )
 }
