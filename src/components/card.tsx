@@ -16,7 +16,7 @@ export const Card = () => {
   const [IsShow, setIsShow] = useState(false)
 
   function handleCopy(copy: string) {
-    navigator.clipboard.writeText(`https://redirect-hxsggsz.vercel.app/tetlima/${copy}`)
+    navigator.clipboard.writeText(`https://tetlima.vercel.app/tetlima/${copy}`)
     setIsShow(true)
     setTimeout(() => {
       setIsShow(false)
@@ -41,7 +41,7 @@ export const Card = () => {
             <h1>Link: {item.url}</h1>
             <div onClick={() => handleCopy(item.nome)} className="flex cursor-pointer pt-2 gap-2">
               <LinkSimple size={30} weight="bold" />
-              <h1>: {`https://redirect-hxsggsz.vercel.app/tetlima/${item.nome}`}</h1>
+              <h1>: {`https://tetlima.vercel.app/tetlima/${item.nome}`}</h1>
             </div>
           </div>
 
