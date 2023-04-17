@@ -24,7 +24,7 @@ export const Card = () => {
   }
 
   async function handleDelete(id: string) {
-    await axios.delete(`/api/link/${id}`)
+    await axios.delete(`/api/link/${id}`) 
     await mutate()
   }
 
