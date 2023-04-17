@@ -15,12 +15,7 @@ async function addOption(url: string, { arg }: { arg: { nome: string, url: strin
 export default function Home() {
   const [nome, setNome] = useState('')
   const [url, setUrl] = useState('')
-  const { data } = useSWR<APiTypes[]>(`/api/links`, fetcher)
   const { trigger, isMutating } = useSWRMutation('/api/links', addOption)
-
-  async function handleDelete(id: string) {
-
-  }
 
   async function handleSubmit(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault()
