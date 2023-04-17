@@ -34,7 +34,6 @@ export default function Home() {
       </form>
 
       <section className=" flex flex-col gap-4 pt-12">
-        <h1>teste</h1>
         <Card />
       </section>
     </main>
