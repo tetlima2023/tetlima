@@ -2,11 +2,8 @@ import { FormEvent, useState } from "react"
 import { Input } from '@/components/input';
 import { Button } from "@/components/button";
 import axios from 'axios';
-import useSWR from "swr"
 import useSWRMutation from 'swr/mutation'
-import { APiTypes } from "./api/types";
 import { Card } from '@/components/card';
-import { fetcher } from "./api/fetcher";
 
 async function addOption(url: string, { arg }: { arg: { nome: string, url: string } }) {
   return await axios.post(url, arg)
@@ -37,6 +34,7 @@ export default function Home() {
       </form>
 
       <section className=" flex flex-col gap-4 pt-12">
+        <h1>teste</h1>
         <Card />
       </section>
     </main>
